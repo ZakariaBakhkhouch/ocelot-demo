@@ -1,0 +1,91 @@
+{
+  "GlobalConfiguration": {
+    "BaseUrl": "https://localhost:7206"
+  },
+  "Routes": [
+    {
+      "UpstreamPathTemplate": "/gateway/writers",
+      "UpstreamHttpMethod": [ "Get" ],
+      "DownstreamPathTemplate": "/api/writers",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7277
+        }
+      ],
+      "RateLimitOptions": {
+        "ClientWhitelist": [],
+        "EnableRateLimiting": true,
+        "Period": "10s",
+        "PeriodTimespan": 10,
+        "Limit": 3
+      }
+    },
+    {
+      "UpstreamPathTemplate": "/gateway/writers/{id}",
+      "UpstreamHttpMethod": [ "Get" ],
+      "DownstreamPathTemplate": "/api/writers/{id}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7277
+        }
+      ]
+    },
+    {
+      "UpstreamPathTemplate": "/gateway/writers",
+      "UpstreamHttpMethod": [ "Post" ],
+      "DownstreamPathTemplate": "/api/writers",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7277
+        }
+      ]
+    },
+    {
+      "UpstreamPathTemplate": "/gateway/articles",
+      "UpstreamHttpMethod": [ "Get" ],
+      "DownstreamPathTemplate": "/api/articles",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7200
+        }
+      ],
+      "FileCacheOptions": {
+        "TtlSeconds": 10,
+        "Region": "MyRegion"
+      }
+    },
+    {
+      "UpstreamPathTemplate": "/gateway/articles/{id}",
+      "UpstreamHttpMethod": [ "Get" ],
+      "DownstreamPathTemplate": "/api/articles/{id}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7200
+        }
+      ]
+    },
+    {
+      "UpstreamPathTemplate": "/gateway/articles",
+      "UpstreamHttpMethod": [ "Post" ],
+      "DownstreamPathTemplate": "/api/articles",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7200
+        }
+      ]
+    }
+
+  ]
+}
